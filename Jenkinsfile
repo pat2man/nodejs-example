@@ -2,15 +2,19 @@
 
 node('nodejs') {
        stage 'Checkout' {
-            checkout scm
+           steps {
+               checkout scm
+           }
        }
 
        stage 'Test' {
-            env.NODE_ENV = "test"
-            print "Environment will be : ${env.NODE_ENV}"
+           steps {
+                env.NODE_ENV = "test"
+                print "Environment will be : ${env.NODE_ENV}"
 
-            sh 'npm install'
-            sh 'npm test'
+                sh 'npm install'
+                sh 'npm test'
+           }
        }
 
         stage('Build') {
