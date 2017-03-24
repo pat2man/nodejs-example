@@ -1,0 +1,33 @@
+{
+  "name": "node-echo",
+  "version": "0.0.1",
+  "description": "node-echo",
+  "main": "server.js",
+  "dependencies": {},
+  "devDependencies": {
+    "ava": "^0.18.2",
+    "nodemon": "*"
+  },
+  "engine": {
+    "node": "*",
+    "npm": "*"
+  },
+  "scripts": {
+    "dev": "nodemon --ignore node_modules/ server.js",
+    "start": "node server.js",
+    "test": "ava"
+  },
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/bettiolo/node-echo.git"
+  },
+  "keywords": [
+    "Echo"
+  ],
+  "author": "Marco Bettiolo <marco@bettiolo.it>",
+  "license": "",
+  "bugs": {
+    "url": "http://github.com/bettiolo/node-echo/issues"
+  },
+  "homepage": "http://apilb.com"
+}
