@@ -23,6 +23,6 @@ node ('nodejs') {
 
     stage('Trigger Build') {            
         echo 'Triggering build of nodejs-example in jenkins-test'
-        openshiftBuild(bldCfg: 'nodejs-example', namespace: 'jenkins-test')
+        openshiftBuild(bldCfg: 'nodejs-example-app', namespace: 'jenkins-test')
     }
 }
