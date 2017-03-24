@@ -1,6 +1,6 @@
 #!groovy
 
-node('node') {
+node('nodejs') {
        stage 'Checkout' {
             checkout scm
        }
