@@ -4,13 +4,13 @@ pipeline {
     agent { label 'nodejs' }
 
     stages {
-        stage 'Checkout' {
+        stage('Checkout') {
             steps {
                 checkout scm
             }
         }
 
-        stage 'Test' {
+        stage('Test') {
             steps {
                 env.NODE_ENV = "test"
                 print "Environment will be : ${env.NODE_ENV}"
