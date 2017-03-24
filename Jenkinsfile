@@ -8,7 +8,7 @@ node ('nodejs') {
     }
 
     stage('Checkout') {
-        scm checkout
+        checkout scm
     }
 
     stage('Install') {
