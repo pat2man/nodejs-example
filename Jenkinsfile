@@ -7,6 +7,10 @@ node ('nodejs') {
         sh 'find ./'
     }
 
+    stage('Checkout') {
+        scm checkout
+    }
+
     stage('Install') {
         echo 'Running npm install'
         sh 'npm install'
