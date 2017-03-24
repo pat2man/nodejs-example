@@ -4,14 +4,19 @@ pipeline {
     agent { label 'nodejs' }
 
     stages {
-        stage('Test') {
+        stage('Install') {
             steps {
                 sh 'npm install'
+            }
+        }
+
+        stage('Test') {
+            steps {
                 sh 'npm test'
             }
         }
 
-        stage('Build') {
+        stage('Trigger Build') {
             when {
                 branch 'master'
             }
