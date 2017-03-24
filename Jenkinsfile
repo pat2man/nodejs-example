@@ -1,32 +1,18 @@
 #!groovy
 
-pipeline {
-    agent { label 'nodejs' }
+node ('nodejs') {
+    stage('Install') {
+        echo 'Running npm install'
+        sh 'npm install'
+    }
 
-    stages {
-        stage('Install') {
-            steps {
-                echo 'Running npm install'
-                sh 'npm install'
-            }
-        }
+    stage('Test') {
+        echo 'Running npm test'
+        sh 'npm test'
+    }
 
-        stage('Test') {
-            steps {
-                echo 'Running npm test'
-                sh 'npm test'
-            }
-        }
-
-        stage('Trigger Build') {
-            when {
-                branch 'master'
-            }
-
-            steps {
-                echo 'Triggering build of nodejs-example in jenkins-test'
-                openshiftBuild(bldCfg: 'nodejs-example', namespace: 'jenkins-test')
-            }
-        }
+    stage('Trigger Build') {            
+        echo 'Triggering build of nodejs-example in jenkins-test'
+        openshiftBuild(bldCfg: 'nodejs-example', namespace: 'jenkins-test')
     }
 }
