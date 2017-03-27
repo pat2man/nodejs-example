@@ -1,17 +1,12 @@
 #!groovy
 
 node ('nodejs') {
-    stage('Debug') {
-        echo 'Listing path and files'
-        sh 'pwd'
-        sh 'find ./'
-    }
-
     stage('Checkout') {
+        echo "Checkout out from Git"
         checkout scm
     }
 
-    stage('Install') {
+    stage('Install Dependencies') {
         echo 'Running npm install'
         sh 'npm install'
     }
